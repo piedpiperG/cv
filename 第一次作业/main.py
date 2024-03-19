@@ -15,15 +15,15 @@ def draw(img, circles):
     cv2.imwrite('data/detected_circles.jpg', img)
 
 
-img = cv2.imread('data/img-5.jpg')
+img = cv2.imread('data/img-3.jpg')
 canny_detector = Canny(img, 5, 1.4, 30, 70)
 final_edges = canny_detector.execute_canny_detection()
 
 # 保存Canny处理后的图像
 cv2.imwrite('data/final_edges.jpg', final_edges)
 
-hough = HoughCircleDetector(20, 150, 10, 80)
-# hough = HoughCircleDetector(20, 30, 10, 50)
+# hough = HoughCircleDetector(50, 150, 10, 80)
+hough = HoughCircleDetector(70, 150, 10, 50)
 circles = hough.detect_circles(final_edges)
 print(circles)
 draw(img, circles)

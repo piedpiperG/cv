@@ -19,29 +19,6 @@ class Canny:
         self.img = cv2.GaussianBlur(self.img, (self.Gaussian_kernel, self.Gaussian_kernel), self.Gaussian_sd)
         return self.img
 
-    # def get_gradient(self):
-    #     # 转换图像为灰度
-    #     if len(self.img.shape) > 2:  # 如果不是灰度图
-    #         gray = cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY)
-    #     else:
-    #         gray = self.img
-    #
-    #     # Sobel算子
-    #     sobel_x = np.array([[-1, 0, 1],
-    #                         [-2, 0, 2],
-    #                         [-1, 0, 1]])
-    #     sobel_y = np.array([[-1, -2, -1],
-    #                         [0, 0, 0],
-    #                         [1, 2, 1]])
-    #
-    #     # 应用Sobel算子进行卷积操作
-    #     gradient_x = convolve(gray, sobel_x)
-    #     gradient_y = convolve(gray, sobel_y)
-    #
-    #     # 计算梯度的幅度和方向
-    #     self.magnitude = np.sqrt(gradient_x ** 2 + gradient_y ** 2)
-    #     self.angle = np.arctan2(gradient_y, gradient_x) * (180 / np.pi)  # 转换为度
-
     def get_gradient(self):
         # 转换图像为灰度
         if len(self.img.shape) > 2:  # 如果不是灰度图
@@ -150,10 +127,10 @@ class Canny:
         return final_edges.astype(np.uint8)
 
 
-if __name__ == '__main__':
-    img = cv2.imread('data/img-3.jpg')
-    canny_detector = Canny(img, 5, 1.4, 13, 15)
-    final_edges = canny_detector.execute_canny_detection()
-    cv2.imshow('Canny Edges', final_edges)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+# if __name__ == '__main__':
+#     img = cv2.imread('data/img-3.jpg')
+#     canny_detector = Canny(img, 5, 1.4, 13, 15)
+#     final_edges = canny_detector.execute_canny_detection()
+#     cv2.imshow('Canny Edges', final_edges)
+#     cv2.waitKey(0)
+#     cv2.destroyAllWindows()
