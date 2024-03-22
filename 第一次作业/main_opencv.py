@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # 读取图片
-img = cv2.imread('data/img-3.jpg')  # 将'your_image.jpg'替换为你的图片文件名
+img = cv2.imread('data/img-4.jpg')  # 将'your_image.jpg'替换为你的图片文件名
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # 应用高斯模糊，减少图像噪声
@@ -15,8 +15,8 @@ edges = cv2.Canny(blurred, 50, 150, apertureSize=3)
 cv2.imwrite('canny_edges.jpg', edges)
 
 # 使用霍夫变换检测圆形
-circles = cv2.HoughCircles(edges, cv2.HOUGH_GRADIENT, dp=1.2, minDist=100,
-                           param1=50, param2=30, minRadius=20, maxRadius=100)
+circles = cv2.HoughCircles(edges, cv2.HOUGH_GRADIENT, dp=1.2, minDist=50,
+                           param1=50, param2=30, minRadius=20, maxRadius=30)
 
 # 绘制检测到的圆形
 if circles is not None:

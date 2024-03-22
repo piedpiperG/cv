@@ -126,7 +126,6 @@ class Canny:
         final_edges = self.threshold_and_link_edges()
         return final_edges.astype(np.uint8)
 
-
 # if __name__ == '__main__':
 #     img = cv2.imread('data/img-3.jpg')
 #     canny_detector = Canny(img, 5, 1.4, 13, 15)
